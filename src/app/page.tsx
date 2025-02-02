@@ -1,100 +1,142 @@
+import Link from "next/link";
 import Image from "next/image";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { Menu } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen bg-swiss-white text-swiss-black font-sans">
+      {/* Fixed Header */}
+      <div className=" top-0 left-0 right-0 flex justify-between items-center px-6 py-6 bg-white z-40">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-['Wagon']">
+          Ciao and Beyond
+        </h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        {/* Hamburger Menu */}
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="default" className=" mb-1" size="lg">
+              <Menu className="h-20 w-20 sm:h-10 sm:w-10" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent className="w-[300px] sm:w-[400px] bg-white">
+            <SheetTitle className="text-2xl">Navigation Menu</SheetTitle>
+            <nav className="flex flex-col gap-8 mt-16">
+              <Link
+                href="/about"
+                className="text-2xl  hover:text-[#FF6B6B] transition-colors"
+              >
+                About
+              </Link>
+              <Link
+                href="/contact"
+                className="text-2xl  hover:text-[#FF6B6B] transition-colors"
+              >
+                Contact
+              </Link>
+              <Link
+                href="/blog"
+                className="text-2xl  hover:text-[#FF6B6B] transition-colors"
+              >
+                Blog
+              </Link>
+            </nav>
+          </SheetContent>
+        </Sheet>
+      </div>
+
+      {/* Main Content */}
+      <main className="container relative mx-auto px-5 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          {/* Left Column */}
+          <div className="space-y-8 mt-4 ">
+            <h1 className="text-6xl font-bold leading-tight ">
+              We are
+              <br />
+              <span className="text-swiss-red  ">Students</span>
+              <br />
+              from Italy
+            </h1>
+            <p className="text-xl ">
+              Our intensive study classes are comming soon..
+            </p>
+            {/* Download PDF Button with Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="bg-red-500 font-bold motion-preset-confetti text-white px-4 sm:px-6 py-2 rounded-full flex items-center gap-2 text-sm sm:text-base">
+                  Download PDF <ChevronDown className="h-3 w-3 sm:h-4 sm:w-4" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-[200px] sm:w-56">
+                <DropdownMenuItem className="text-center py-3 text-sm sm:text-base">
+                  Exam Questions
+                </DropdownMenuItem>
+                <DropdownMenuItem className="text-center py-3 text-sm sm:text-base">
+                  Guide
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+
+          {/* Right Column */}
+          <div className="relative w-full h-[500px] md:h-[600px]">
+            {/* Background geometric shapes */}
+            <div className="absolute top-4 right-4 w-48 h-48 md:w-64 md:h-64 motion-opacity-in-0 motion-translate-x-in-100 motion-blur-in-md bg-swiss-red z-0"></div>
+            <div className="absolute bottom-4 motion-opacity-in-0 motion-translate-y-in-100 motion-blur-in-md  left-4 w-48 h-48 md:w-64 md:h-64 border-4 border-swiss-black z-0"></div>
+
+            {/* Central image with geometric overlay */}
+            <div className="absolute inset-0 m-auto w-64 h-64 md:w-80 md:h-80">
+              <div className="relative w-full h-full">
+                <Image
+                  src="/images/logo.png"
+                  alt="Swiss design elements"
+                  fill
+                  className="object-cover z-10"
+                />
+                {/* Geometric overlay */}
+                <div className="absolute inset-0 bg-swiss-black opacity-10 z-20"></div>
+              </div>
+            </div>
+
+            {/* Typography element */}
+            <div className="absolute bottom-8 right-8 z-30">
+              <p
+                className="text-6xl font-bold writing-mode-vertical transform rotate-180"
+                style={{ writingMode: "vertical-rl" }}
+              >
+                2025
+              </p>
+            </div>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="bg-swiss-white text-swiss-black p-8 border-t border-swiss-black">
+        <div className="container mx-auto flex justify-between items-center">
+          <div>&copy; 2025 Ciao and Beyond Co.</div>
+          <div className="flex space-x-4">
+            <Link href="#" className="hover:text-swiss-red transition-colors">
+              Privacy
+            </Link>
+            <Link href="#" className="hover:text-swiss-red transition-colors">
+              Terms
+            </Link>
+          </div>
+        </div>
       </footer>
     </div>
   );
