@@ -96,7 +96,7 @@ export default function Home() {
           <div className="relative border-2 border-black-500 border-dashed w-full h-[400px] sm:h-[500px] md:h-[600px]">
             {/* 3D star */}
             <div className="absolute inset-0 z-0">
-              <Spline scene="https://prod.spline.design/xjBKSkSkdd6mUPcS/scene.splinecode" />
+              <Spline scene="https://prod.spline.design/RkZFVqKdXtIsEBmt/scene.splinecode" />
             </div>
 
             {/* Typography element */}
