@@ -98,12 +98,11 @@ const MenuFull = () => {
           </div>
           <div className="menu-info">
             <div className="menu-info-col">
-              <a href="#">Behance &#8599;</a>
-              <a href="#">Dribbble &#8599;</a>
+              <a href="#">Facebook</a>
             </div>
             <div className="menu-info-col">
               <p>ciaoandbeyond@gmail.com</p>
-              <p>0923 3984 23</p>
+              <p></p>
             </div>
           </div>
         </div>
