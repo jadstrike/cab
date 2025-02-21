@@ -1,13 +1,5 @@
 import Link from "next/link";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-  SheetTitle,
-} from "@/components/ui/sheet";
 import Spline from "@splinetool/react-spline/next";
-import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -27,7 +19,7 @@ export default function Home() {
         </h1>
 
         {/* Hamburger Menu */}
-        <Sheet>
+        {/* <Sheet>
           <SheetTrigger asChild>
             <Button variant="default" className="mb-1" size="lg">
               <Menu className="h-8 w-8 sm:h-10 sm:w-10" />
@@ -56,7 +48,7 @@ export default function Home() {
               </Link>
             </nav>
           </SheetContent>
-        </Sheet>
+        </Sheet> */}
       </div>
 
       {/* Main Content */}
@@ -99,7 +91,7 @@ export default function Home() {
               <Spline scene="https://prod.spline.design/pTps12LmbcC5jWPh/scene.splinecode" />
             </div>
 
-            <div className="absolute bottom-0 right-0 w-[200px] h-[56px] bg-white z-10"></div>
+            <div className="absolute bottom-0 right-0 w-[200px] h-[56px] bg-white z-[1]"></div>
 
             {/* Typography element */}
           </div>
