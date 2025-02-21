@@ -93,11 +93,13 @@ export default function Home() {
           </div>
 
           {/* Right Column */}
-          <div className="relative border-2 border-black-500 border-dashed w-full h-[400px] sm:h-[500px] md:h-[600px]">
+          <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px]">
             {/* 3D star */}
             <div className="absolute inset-0 z-0">
-              <Spline scene="https://prod.spline.design/RkZFVqKdXtIsEBmt/scene.splinecode" />
+              <Spline scene="https://prod.spline.design/pTps12LmbcC5jWPh/scene.splinecode" />
             </div>
+
+            <div className="absolute bottom-0 right-0 w-[200px] h-[56px] bg-white z-10"></div>
 
             {/* Typography element */}
           </div>
