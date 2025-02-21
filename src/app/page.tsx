@@ -1,11 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
   SheetTitle,
 } from "@/components/ui/sheet";
+import Spline from "@splinetool/react-spline/next";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import {
@@ -15,6 +15,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
+// import Star3D from "@/components/Star3D";
 
 export default function Home() {
   return (
@@ -92,34 +93,13 @@ export default function Home() {
           </div>
 
           {/* Right Column */}
-          <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px]">
-            {/* Background geometric shapes */}
-            <div className="absolute top-4 right-4 w-48 h-48 md:w-64 md:h-64 motion-opacity-in-0 motion-translate-x-in-100 motion-blur-in-md bg-swiss-red z-0"></div>
-            <div className="absolute bottom-4 motion-opacity-in-0 motion-translate-y-in-100 motion-blur-in-md  left-4 w-48 h-48 md:w-64 md:h-64 border-4 border-swiss-black z-0"></div>
-
-            {/* Central image with geometric overlay */}
-            <div className="absolute inset-0 m-auto w-64 h-64 md:w-80 md:h-80">
-              <div className="relative w-full h-full">
-                <Image
-                  src="/images/logo.png"
-                  alt="Swiss design elements"
-                  fill
-                  className="object-cover z-10"
-                />
-                {/* Geometric overlay */}
-                <div className="absolute inset-0 bg-swiss-black opacity-10 z-20"></div>
-              </div>
+          <div className="relative border-2 border-black-500 border-dashed w-full h-[400px] sm:h-[500px] md:h-[600px]">
+            {/* 3D star */}
+            <div className="absolute inset-0 z-0">
+              <Spline scene="https://prod.spline.design/xjBKSkSkdd6mUPcS/scene.splinecode" />
             </div>
 
             {/* Typography element */}
-            <div className="absolute bottom-8 right-8 z-30">
-              <p
-                className="text-6xl font-bold writing-mode-vertical transform rotate-180"
-                style={{ writingMode: "vertical-rl" }}
-              >
-                2025
-              </p>
-            </div>
           </div>
         </div>
       </main>
